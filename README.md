@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StellarPay — Stellar Testnet Payment dApp
+
+A clean, minimal payment dApp built on the Stellar testnet. Connect your Freighter wallet, view your XLM balance, and send payments to any Stellar address — with real-time transaction feedback.
+
+## Features
+
+- **Wallet Connection** — Connect and disconnect via Freighter browser extension
+- **Balance Display** — Fetches and displays your XLM balance from Horizon testnet
+- **Send XLM** — Transfer any amount of XLM to a valid Stellar address
+- **Transaction Feedback** — Success/failure states with clickable transaction hash linking to Stellar Explorer
+- **Input Validation** — Validates Stellar addresses and amounts before submission
+- **Auto-Refresh** — Balance updates automatically after a successful transaction
+
+## Tech Stack
+
+| Layer       | Technology                              |
+|-------------|------------------------------------------|
+| Framework   | [Next.js 16](https://nextjs.org)         |
+| Language    | TypeScript + JavaScript (React)          |
+| Styling     | [Tailwind CSS v4](https://tailwindcss.com) |
+| Blockchain  | [Stellar SDK](https://stellar.org)       |
+| Wallet      | [Freighter](https://freighter.app)       |
+| Network     | Stellar Testnet (Horizon)                |
+
+## Prerequisites
+
+1. **Node.js** v18+ installed
+2. **Freighter Wallet** browser extension installed and set to **Testnet**
+3. A funded testnet account (use [Friendbot](https://laboratory.stellar.org/#account-creator?network=test) to fund)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# 1. Clone the repository
+git clone https://github.com/<your-username>/stellar-l1.git
+cd stellar-l1
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the dev server (HTTPS required for Freighter)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 4. Open https://localhost:3000 in your browser
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── components/
+│   ├── Freighter.ts      # Wallet service: connect, balance, send payment
+│   ├── Header.js         # Navigation bar with wallet connect/disconnect
+│   └── SendPayment.js    # Payment form with validation + tx feedback
+├── globals.css           # Global styles (Tailwind v4)
+├── layout.tsx            # Root layout
+└── page.tsx              # Main page — composes Header + SendPayment
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How It Works
 
-## Learn More
+1. **Connect** — Click "Connect Wallet" to link your Freighter wallet.
+2. **View Balance** — Your XLM balance and truncated address appear in the header.
+3. **Send XLM** — Enter a destination address and amount, then click "Send XLM".
+4. **Confirm** — Approve the transaction in the Freighter popup.
+5. **Result** — See the transaction hash (success) or error message (failure).
 
-To learn more about Next.js, take a look at the following resources:
+## Network
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This dApp runs on the **Stellar Testnet**. All XLM is test currency with no real value.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Horizon API**: `https://horizon-testnet.stellar.org`
+- **Network Passphrase**: `Test SDF Network ; September 2015`
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
