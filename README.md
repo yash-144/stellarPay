@@ -22,9 +22,9 @@ This application focuses on fulfilling the core requirements of **Level 1 – Wh
 ## Screenshots
 
 <div align="center">
-    <img src="screenshots/dashboard.png" alt="Home Dashboard view" width="800" />
-    <br/><br/>
     <img src="screenshots/transaction-init.png" alt="Connecting and Transacting" width="800" />
+    <br/><br/>
+    <img src="screenshots/dashboard.png" alt="Home Dashboard view" width="800" />
     <br/><br/>
     <img src="screenshots/transaction-success.png" alt="Transaction completion details" width="800" />
 </div>
