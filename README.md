@@ -48,7 +48,7 @@ This application focuses on fulfilling the core requirements of **Level 1 – Wh
 ### Local Setup
 ```bash
 # 1. Clone the repository
-git clone [<repository-url>](https://github.com/yash-144/stellarPay)
+git clone https://github.com/yash-144/stellarPay
 cd stellarPay
 
 # 2. Install dependencies
